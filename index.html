@@ -1,0 +1,324 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil Insan Statistik</title>
+  <meta name="description" content="Profil Insan Statistik" />
+  <style>
+    :root{
+      --bg:#0b0f12; /* latar belakang gelap modern */
+      --surface:#11161c; /* kartu/permukaan */
+      --surface-2:#151c23; /* permukaan sekunder */
+      --text:#eef2f6; /* teks utama */
+      --muted:#9aa3af; /* teks sekunder */
+      --brand:#11b981; /* hijau (nuansa BPS) */
+      --brand-2:#2ea7ff; /* biru (nuansa BPS) */
+      --radius:16px;
+      --gap:1.25rem;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
+      background:radial-gradient(1200px 600px at 80% -20%, #0d1830 0%, transparent 60%),
+                 radial-gradient(1200px 600px at -10% 120%, #06251a 0%, transparent 60%),
+                 var(--bg);
+    }
+    img{max-width:100%;display:block;border-radius:12px}
+    .container{width:min(1100px,92%);margin-inline:auto}/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(17,22,28,.85);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid #1e2530}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;font-weight:800;color:#0a0e12}
+.site-title{margin:0;font-size:1.15rem;letter-spacing:.2px}
+.site-nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+.site-nav a{color:var(--muted);text-decoration:none}
+.site-nav a:hover{color:var(--text)}
+
+/* Layout utama dengan FLEXBOX */
+.content{display:flex;gap:var(--gap);padding:clamp(1rem,2.5vw,2rem) 0 3rem}
+article.main{flex:2;background:var(--surface);padding:1.25rem;border-radius:var(--radius)}
+aside.sidebar{flex:1;display:flex;flex-direction:column;gap:var(--gap)}
+.sidebar > section{background:var(--surface);padding:1.25rem;border-radius:var(--radius)}
+
+/* Article */
+.lede{color:var(--muted);margin-top:.25rem}
+.fact-grid{display:flex;flex-wrap:wrap;gap:.75rem;margin:1rem 0}
+.fact{flex:1 1 210px;background:var(--surface-2);padding:.75rem;border-radius:12px}
+.fact dt{font-size:.8rem;color:var(--muted);margin:0}
+.fact dd{margin:.15rem 0 0 0;font-weight:600}
+
+.section{margin-top:1.25rem}
+.section h3{margin:.25rem 0 .5rem}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{background:linear-gradient(135deg, #0f2636, #0d1c2c);border:1px solid #1d2a36;color:#cfe8ff;padding:.35rem .6rem;border-radius:999px;font-size:.85rem}
+
+.gallery{display:flex;gap:var(--gap);flex-wrap:wrap}
+.card{background:var(--surface-2);padding:.75rem;border-radius:12px;flex:1 1 240px;display:flex;flex-direction:column;gap:.5rem}
+.card h4{margin:.25rem 0 0}
+
+/* Sidebar */
+.profile-card{display:flex;gap:1rem;align-items:center;margin:0 0 1rem 0}
+.profile-card img{width:96px;height:96px;object-fit:cover;border-radius:50%;border:3px solid rgba(46,167,255,.25)}
+.badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;font-size:.8rem;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#001317;font-weight:700}
+
+.skill-list{display:flex;flex-direction:column;gap:.5rem;margin:.5rem 0 0}
+.skill{display:flex;align-items:center;gap:.5rem}
+.bar{height:8px;flex:1;background:#0f141a;border-radius:999px;overflow:hidden}
+.bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand) 0%, var(--brand-2) 100%)}
+
+.contact{list-style:none;padding:0;margin:.75rem 0 0;display:flex;flex-direction:column;gap:.25rem}
+.contact a{color:var(--brand-2);text-decoration:none}
+.contact a:hover{text-decoration:underline}
+
+/* Footer */
+.site-footer{border-top:1px solid #1e2530;background:var(--surface)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
+.site-footer p{margin:0;color:var(--muted)}
+
+/* Responsif */
+@media (max-width: 860px){
+  .content{flex-direction:column}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+
+  </style>
+</head>
+<body>
+  <!-- HEADER: sebelum <main> -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">BPS</div>
+        <h1 class="site-title">Profil Insan Statistik</h1>
+      </div>
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#riwayat">Riwayat</a></li>
+          <li><a href="#keahlian">Keahlian</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header> <!-- MAIN: hanya 1x, di antara header & footer --> <main id="beranda" class="container content">
+    <!-- ARTICLE: konten utama sesuai peruntukan -->
+    <article class="main" aria-labelledby="judul-artikel">
+      <header>
+        <h2 id="judul-artikel">Eka Setia Syamsi — Insan Statistik</h2>
+        <p class="lede">Statistisi Pelaksana, Pengatur Muda Gol II/a yang berfokus pada kualitas data, diseminasi cerdas, dan pelayanan publik berbasis bukti. Berkiprah di BPS Kabupaten Karawang.</p>
+      </header><!-- Biodata ringkas dalam grid fakta -->
+  <dl class="fact-grid" aria-label="Biodata ringkas">
+    <div class="fact"><dt>Unit Kerja</dt><dd>BPS Kabupaten Karawang</dd></div>
+    <div class="fact"><dt>Jabatan</dt><dd>Statistisi Pelaksana II/a</dd></div>
+    <div class="fact"><dt>NIP</dt><dd>199305042025211050</dd></div>
+    <div class="fact"><dt>Keahlian Utama</dt><dd>Publikasi, Editor Video & Foto, Humas Medsos &amp; Kameramen Instansi</dd></div>
+  </dl>
+
+  <section class="section">
+    <h3>Ikhtisar</h3>
+    <p>Mampu menyusun produk komunikasi statistik (infografik, artikel singkat, video mini) yang ramah publik, terbiasa membuat foto dan video publikasi kegiatan di instansi. Mengedepankan <em>data storytelling</em> yang akurat namun mudah dicerna.</p>
+    <div class="chips" role="list" aria-label="Kata kunci capaian">
+      <span class="chip" role="listitem">Humas</span>
+      <span class="chip" role="listitem">Editor Foto & Video</span>
+      <span class="chip" role="listitem">Infografik</span>
+      <span class="chip" role="listitem">Fotography &amp; Videography Instansi</span>
+    </div>
+  </section>
+
+  <section id="riwayat" class="section">
+    <h3>Riwayat Tugas & Capaian</h3>
+    <ul>
+      <li>2025 — Koordinasi konten HSN, penyegaran identitas visual kanal BPS Karawang, serta pembuatan microsite kegiatan.</li>
+      <li>2024 — Penanggung jawab publikasi konten kegiatan di instansi BPS Kabupaten Karawang.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>Galeri Kegiatan</h3>
+    <div class="gallery" role="list">
+      <figure class="card" role="listitem">
+        <img src="https://fkaadazafgjbw7xn.public.blob.vercel-storage.com/Editor%20Foto.jpeg" alt="Proses Edit Foto Kegiatan Instansi" loading="lazy">
+        <figcaption>
+          <h4>Proses Edit Foto Kegiatan Instansi</h4>
+          <p>Kegiatan rutin dilakukan untuk Publikasi Kegiatan Instansi dan Pimpinan.</p>
+        </figcaption>
+      </figure>
+      <figure class="card" role="listitem">
+        <img src="https://fkaadazafgjbw7xn.public.blob.vercel-storage.com/Editor%20Video.jpeg" alt="Proses Edit Video Kegiatan Instansi" loading="lazy">
+        <figcaption>
+          <h4>Proses Edit Video Kegiatan Instansi</h4>
+          <p>Kegiatan rutin dilakukan untuk Publikasi Kegiatan Instansi dan Pimpinan.</p>
+        </figcaption>
+      </figure>
+      <figure class="card" role="listitem">
+        <img src="https://fkaadazafgjbw7xn.public.blob.vercel-storage.com/menyiapkan%20berkas%20kegiatan%20sensus.jpeg" alt="Persiapan Untuk Kegiatan Survei dan Sensus" loading="lazy">
+        <figcaption>
+          <h4>Persiapan Untuk Kegiatan Survei dan Sensus</h4>
+          <p>Biasanya dilakukan sebelum kegiatan sensus maupun survei dimulai untuk bahan ajar atau pelatihan.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer class="section" aria-label="Catatan artikel">
+    <p>Halaman ini dibuat untuk memenuhi kriteria UTS: Web Programing 1</p>
+  </footer>
+</article>
+
+<!-- ASIDE: informasi pendukung + wajib ada foto diri -->
+<aside class="sidebar" aria-labelledby="profil-penulis">
+  <section class="profile" id="profil">
+    <h2 id="profil-penulis">Profil Saya</h2>
+    <figure class="profile-card">
+      <img src="https://fkaadazafgjbw7xn.public.blob.vercel-storage.com/foto-diri.jpg.png" alt="Foto diri Insan Statistik" width="260" height="260">
+      <figcaption>
+        <strong>Eka Setia Syamsi</strong><br>
+        <span class="badge">Profil Insan Statistik</span>
+      </figcaption>
+    </figure>
+    <p>Mengawal kualitas data dan komunikasi statistik yang humanis. Berkontribusi nyata dalam pembangunan bangsa melalui konten yang bermanfaat.</p>
+  </section>
+
+  <section id="keahlian">
+    <h2>Keahlian</h2>
+    <div class="skill-list" role="list">
+      <div class="skill" role="listitem" aria-label="Infografis: 80%">
+        <span style="min-width:110px">Infografik</span>
+        <div class="bar" aria-hidden="true"><span style="width:80%"></span></div>
+      </div>
+      <div class="skill" role="listitem" aria-label="Visualisasi Data: 75%">
+        <span style="min-width:110px">Visualisasi Data</span>
+        <div class="bar" aria-hidden="true"><span style="width:75%"></span></div>
+      </div>
+      <div class="skill" role="listitem" aria-label="Publikasi: 85%">
+        <span style="min-width:110px">Publikasi</span>
+        <div class="bar" aria-hidden="true"><span style="width:85%"></span></div>
+      </div>
+      <div class="skill" role="listitem" aria-label="Fotography dan Videography: 85%">
+        <span style="min-width:110px">Web Dasar</span>
+        <div class="bar" aria-hidden="true"><span style="width:85%"></span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="kontak">
+    <meta charset="UTF-8">
+  <title>Kontak Saya</title>
+
+  <!-- Font Awesome (ikon gratis) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .kontak {
+      background: #1f1f2e;
+      padding: 20px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .kontak h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      border-bottom: 2px solid #3a3a4d;
+      padding-bottom: 6px;
+    }
+
+    .kontak ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .kontak li {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .kontak a {
+      color: #4db8ff;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .kontak a:hover {
+      color: #90caf9;
+    }
+
+    /* ikon mini */
+    .kontak i {
+      font-size: 14px;
+      width: 18px;
+      height: 18px;
+      text-align: center;
+      line-height: 18px;
+      color: #00bcd4;
+      background: #ffffff10;
+      border-radius: 50%;
+    }
+  </style>
+
+<div class="kontak">
+    <h3>Kontak</h3>
+    <ul>
+      <li>
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:eka.syamsi@student.rosma.com">eka.syamsi@student.rosma.com</a>
+      </li>
+      <li>
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:ekasyamsi-pppk@bps.go.id">ekasyamsi-pppk@bps.go.id</a>
+      </li>
+      <li>
+        <i class="fa-brands fa-instagram"></i>
+        <a href="https://instagram.com/ndetsetia" target="_blank">Instagram</a>
+      </li>
+      <li>
+        <i class="fa-brands fa-whatsapp"></i>
+        <a href="https://wa.me/6285779262633" target="_blank">WhatsApp 0857-7926-2633</a>
+      </li>
+    </ul>
+  </div>
+  </section>
+
+
+
+  <section class="notice">
+    <h2>Hai Kawan</h2>
+    <p>Selamat Datang di Profil Saya, Semoga Hari-mu Menyenangkan :)</p>
+  </section>
+</aside>
+
+  </main> <!-- FOOTER: setelah <main> --> <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; 2025 Profil Insan Statistik</p>
+      <nav aria-label="Tautan footer" class="footer-nav">
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#riwayat">Riwayat</a></li>
+          <li><a href="#keahlian">Keahlian</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
